@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box h2 {
+            color: white;
+            font-size: 4em;
+            text-shadow: 2px 2px rgb(243, 146, 162);
+            z-index: 1;
+            /* 当元素之间重叠的时候，z-index 较大的元素会覆盖较小的元素在上层进行显示。 */
+        }
+
+        .box::before {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120%;
+            background: linear-gradient(#00ccff, #d500f9);
+        }
+
+        .box::after {
+            content: "";
+            position: absolute;
+            background: #0e1538;
+            inset: 5px;
+            border-radius: 20px;
+        }
+
+        .box {
+            position: relative;
+            width: 180px;
+            height: 250px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box::before {
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .box {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>
+            潮
+        </h2>
+    </div>
+</body>
+
+</html>
